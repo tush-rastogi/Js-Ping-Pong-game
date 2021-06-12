@@ -1,0 +1,25 @@
+.header{
+     text-align:center;
+     font-size: 50px;
+}
+
+#canvas{
+    display: inline-flex;
+    position: relative;
+    left:30%;
+    top:72px;
+
+
+} 
+.control{
+     display: flex;
+   
+     position: relative;
+     
+     justify-content: center;
+    top:200px;
+
+}
+#stop{
+    margin-left:10px;
+}

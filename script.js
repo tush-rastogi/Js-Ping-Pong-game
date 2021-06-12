@@ -3,7 +3,7 @@
 let play=document.querySelector("#play");
 let stop=document.querySelector("#stop");
 //  let ctx;
-let paddle1,paddle2,paddle1Y=250,paddle2Y=250,paddle2speed=4,player1=0,player2=0,paddle1X=0,paddle2X=785;
+let paddle1,paddle2,paddle1Y=250,paddle2Y=250,paddle2speed=8,player1=0,player2=0,paddle1X=0,paddle2X=785;
 let ballX,ballY,ballspeedX=7,ballspeedY=6,paddle1speed=8;
 
 
@@ -17,6 +17,9 @@ let ballX,ballY,ballspeedX=7,ballspeedY=6,paddle1speed=8;
 
   stop.addEventListener('click',()=>{
       clicked=false;
+
+       player1=0;
+       player2=0;
   });
 
   function setup()
@@ -92,11 +95,20 @@ let ballX,ballY,ballspeedX=7,ballspeedY=6,paddle1speed=8;
            if(ballX>=790||ballX<=11)
            {
                ballspeedX*=-1;
+               
+
+                 if(ballX>=790)
+                 player1++;
+
+                 else
+                 player2++;
+             
            }
      
              if(ballY<=11||ballY>=489)
              {
                  ballspeedY*=-1;
+                
              }
              
     
@@ -108,7 +120,7 @@ let ballX,ballY,ballspeedX=7,ballspeedY=6,paddle1speed=8;
           
     
 
-          if(ballX>=0&&ballX<=25&&(ballY>=paddle1Y&&ballY<=paddle1Y+50))
+          if((ballY>=paddle1Y-10&&ballY<=paddle1Y+50)&&ballX>=0&&ballX<=25)
           {
               ballspeedX*=-1;
               
@@ -119,7 +131,7 @@ let ballX,ballY,ballspeedX=7,ballspeedY=6,paddle1speed=8;
           }
         
 
-          if(ballX>=0&&ballX<=25&&(ballY>=paddle1Y+50&&ballY<=paddle1Y+102))
+         else if((ballY>=paddle1Y+50&&ballY<=paddle1Y+100)&&ballX>=0&&ballX<=25)
 
           {
               ballspeedX*=-1;
@@ -130,7 +142,7 @@ let ballX,ballY,ballspeedX=7,ballspeedY=6,paddle1speed=8;
           }
 
 
-          if(ballX>=785&&ballX<=800&&(ballY>=paddle2Y&&ballY<=paddle2Y+50))
+          if((ballY>=paddle2Y-10&&ballY<=paddle2Y+50)&&ballX>=785&&ballX<=800)
           {
               ballspeedX*=-1;
               
@@ -144,7 +156,7 @@ let ballX,ballY,ballspeedX=7,ballspeedY=6,paddle1speed=8;
         
 
 
-          if(ballX>=785&&ballX<=800&&(ballY>=paddle2Y+50&&ballY<=paddle2Y+102))
+          else if((ballY>=paddle2Y+50&&ballY<=paddle2Y+100)&&(ballX>=785&&ballX<=800))
           {
               ballspeedX*=-1;
               
@@ -159,27 +171,33 @@ let ballX,ballY,ballspeedX=7,ballspeedY=6,paddle1speed=8;
            console.log(ballX,ballY);
     
 
-             if(ballX>=800)
+             if(ballX>=797)
              {
-                 ballX=Math.floor(random(700,750));
+                 ballX=Math.floor(random(780,784));
              }
     
 
-               if(ballX<=0)
+               if(ballX<=2)
                {
-                ballX=Math.floor(random(15,20));
+                ballX=Math.floor(random(16,20));
                }
 
-               if(ballY>=500)
+               if(ballY>=495)
                {
-                ballY=Math.floor(random(450,400));
+                ballY=Math.floor(random(480,485));
                 
                }
     
-               if(ballY<=0)
+               if(ballY<=7)
                {
                 ballY=Math.floor(random(15,20));
                }
+
+
+               
+
+
+
 
             }
 
@@ -214,5 +232,7 @@ let ballX,ballY,ballspeedX=7,ballspeedY=6,paddle1speed=8;
 
 
          
+      
+
      }
 

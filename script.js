@@ -28,10 +28,10 @@ let ballX,ballY,ballspeedX=7,ballspeedY=6,paddle1speed=8;
          
           canvas.parent('canvas');
             
-           background('green');
+          background('#282828');
            
              textSize(20);
-            text(`Player 1 :${player1}`,150,20);
+            text(`Player 1 : ${player1}`,150,20);
             text(`Player 2 : ${player2}`,590,20);
           
            paddle1=rect(paddle1X,paddle1Y,15,100); 
@@ -42,8 +42,10 @@ let ballX,ballY,ballspeedX=7,ballspeedY=6,paddle1speed=8;
            ballY=Math.floor(random(15,450));
         
              line(400,0,400,500);
-           
-
+              
+             stroke('white');
+             strokeWeight(4);
+                    
             circle(ballX,ballY,20);
 
             // frameRate(40);
@@ -59,12 +61,14 @@ let ballX,ballY,ballspeedX=7,ballspeedY=6,paddle1speed=8;
     {
         
     
-        background('green');
+        background('#282828');
         line(400,0,400,500);
+        stroke('white');
+        strokeWeight(4);
         circle(ballX,ballY,20);
         textSize(20);
        
-        text(`Player 1 :${player1}`,150,20);
+        text(`Player 1 : ${player1}`,150,20);
         text(`Player 2 : ${player2}`,590,20);
         
         //   ballspeedX=random(3,7);

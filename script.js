@@ -4,7 +4,7 @@ let play=document.querySelector("#play");
 let stop=document.querySelector("#stop");
 //  let ctx;
 let paddle1,paddle2,paddle1Y=250,paddle2Y=250,paddle2speed=8,player1=0,player2=0,paddle1X=0,paddle2X=785;
-let ballX,ballY,ballspeedX=7,ballspeedY=6,paddle1speed=8;
+let ballX,ballY,ballspeedX=8,ballspeedY=8,paddle1speed=8;
 
 
  let clicked=false;

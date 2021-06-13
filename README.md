@@ -1,5 +1,6 @@
 # Js-Ping-Pong-game (Desktop-Version)
 1-Used p5.js library in this project.<br>
+# You can play the game by clicking on the link given below--
 #Link of the project- https://tush-rastogi.github.io/Js-Ping-Pong-game/ <br>
 ## INSTRUCTIONS ::<br>
 1-UP_ARROW to move the left paddle upward.<br>

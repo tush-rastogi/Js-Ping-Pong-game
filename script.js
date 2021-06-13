@@ -1,29 +1,32 @@
-// let canvas=document.querySelector('#canvas');
-  
 let play=document.querySelector("#play");
 let stop=document.querySelector("#stop");
-//  let ctx;
+
+// variables names are self-descriptive....
+
 let paddle1,paddle2,paddle1Y=250,paddle2Y=250,paddle2speed=8,player1=0,player2=0,paddle1X=0,paddle2X=785;
 let ballX,ballY,ballspeedX=8,ballspeedY=8,paddle1speed=8;
 
-
+ 
  let clicked=false;
  
-  play.addEventListener('click',()=>{
+  play.addEventListener('click',()=>{// game starts when user click on the play button
 
            clicked=true;
 
   });
 
-  stop.addEventListener('click',()=>{
+  stop.addEventListener('click',()=>{  // game stops when user click on stop button and both player scores resets to 0.
       clicked=false;
-
+ 
        player1=0;
        player2=0;
   });
 
-  function setup()
+  function setup() // this function will execute only once when program starts 
   {
+       
+      // initial setup of game
+    
        let canvas=createCanvas(800,500);
          
           canvas.parent('canvas');
@@ -55,13 +58,15 @@ let ballX,ballY,ballspeedX=8,ballspeedY=8,paddle1speed=8;
 
   }
 
-  function draw(){
-
-    if(clicked)
+  function draw(){  // this function continue repeats itself by default this function calls 60 times in 1 sec
+ 
+   
+   
+      if(clicked) // execute only when user clicked play button..
     {
         
     
-        background('#282828');
+        background('#282828'); // 
         line(400,0,400,500);
         stroke('white');
         strokeWeight(4);
@@ -89,26 +94,26 @@ let ballX,ballY,ballspeedX=8,ballspeedY=8,paddle1speed=8;
             
             ballY+=ballspeedY;
 
-          if(paddle2Y>=400||paddle2Y<=0)
+          if(paddle2Y>=400||paddle2Y<=0) // to reverse the direction of paddle when it strikes to top and bottom of canvas
            paddle2speed*=-1;
     
          
            
 
-
+         //  to reverse the direction of ball when ball strikes the left and right boundary of canvas
            if(ballX>=790||ballX<=11)
            {
                ballspeedX*=-1;
                
 
-                 if(ballX>=790)
+                 if(ballX>=790) // when ball strikes to the right wall of canvas player1 score increases by one every time..
                  player1++;
 
                  else
                  player2++;
              
            }
-     
+          // to reverse the direction of ball when  ball strikes the top and bottom of the canvas..
              if(ballY<=11||ballY>=489)
              {
                  ballspeedY*=-1;
@@ -117,40 +122,41 @@ let ballX,ballY,ballspeedX=8,ballspeedY=8,paddle1speed=8;
              
     
          
-             paddleMovement();
+             paddleMovement(); // left paddle controller
 
 
 
           
-    
-
+             // for left paddle 
+            // when ball strikes the upper half of the left paddle
           if((ballY>=paddle1Y-10&&ballY<=paddle1Y+50)&&ballX>=0&&ballX<=25)
           {
               ballspeedX*=-1;
               
-                if(ballspeedY>0)
+                if(ballspeedY>0)  // if ball strikes the upper half of the paddle it bounce back in upward direction
                 ballspeedY*=-1;
 
               
           }
         
-
+  // when ball strikes the lower half of the left paddle
          else if((ballY>=paddle1Y+50&&ballY<=paddle1Y+100)&&ballX>=0&&ballX<=25)
 
           {
               ballspeedX*=-1;
               
-               if(ballspeedY<0)
+               if(ballspeedY<0) // if ball strikes the lower half of the paddle it bounce back in downward direction
                 ballspeedY*=-1;
 
           }
 
-
+            // for right paddle 
+            // when ball strikes the upper half of the right  paddle
           if((ballY>=paddle2Y-10&&ballY<=paddle2Y+50)&&ballX>=785&&ballX<=800)
           {
               ballspeedX*=-1;
               
-                if(ballspeedY>0)
+                if(ballspeedY>0) // if ball strikes the upper half of the paddle it bounce back in upward direction
                 ballspeedY*=-1;
                 
                 
@@ -159,22 +165,21 @@ let ballX,ballY,ballspeedX=8,ballspeedY=8,paddle1speed=8;
           }
         
 
-
+          // when ball strikes the lower half of the right paddle 
           else if((ballY>=paddle2Y+50&&ballY<=paddle2Y+100)&&(ballX>=785&&ballX<=800))
           {
               ballspeedX*=-1;
               
-               if(ballspeedY<0)
+               if(ballspeedY<0)  // if ball strikes the lower half of the paddle it bounce back in downward direction
                 ballspeedY*=-1;
 
           }
 
-        //   if(ballX<20&&ballY>=paddle1Y&&ballY<=paddle1Y<=100)
-        //   ballspeedX*=-1;
-            
-           console.log(ballX,ballY);
+      
+          // console.log(ballX,ballY);
     
-
+             // to prevent the ball from going inside the canvas....
+              
              if(ballX>=797)
              {
                  ballX=Math.floor(random(780,784));
@@ -212,7 +217,7 @@ let ballX,ballY,ballspeedX=8,ballspeedY=8,paddle1speed=8;
     {
                 
            
-          if(paddle1Y<=1)
+          if(paddle1Y<=1)  
           keyCode=DOWN_ARROW;
 
            if(paddle1Y>=400)
@@ -223,19 +228,19 @@ let ballX,ballY,ballspeedX=8,ballspeedY=8,paddle1speed=8;
         
         
         
-        if(keyCode===UP_ARROW)
+        if(keyCode===UP_ARROW)  // left paddle moves upward on clicking up arrow...
         {
              paddle1Y-=paddle1speed;
         }
 
 
-          if(keyCode===DOWN_ARROW)
+          if(keyCode===DOWN_ARROW) // left paddle moves  downward on clicking down arrow..
          {
              paddle1Y+=paddle1speed;
          }
 
 
-         
+          // any other key can be used to halt the movement of left paddle ..
       
 
      }
